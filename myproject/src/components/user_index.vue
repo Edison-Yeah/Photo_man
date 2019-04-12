@@ -55,7 +55,7 @@
 
              </a-layout-header>
 
-             <a-layout-content :style="{ margin: '50px 16px 0px 220px', padding: '24px', background: '#fff', minHeight: '590px',position:'relative' }">
+             <a-layout-content :style="{ margin: '50px 16px 0px 220px', padding: '24px', background: '#fff', minHeight: '730px',position:'relative' }">
                 <router-view/>
              </a-layout-content>
 
@@ -124,7 +124,7 @@ export default {
          margin: 16px;
      }
      #sider{
-         height:750px;
+         height:830px;
          position: fixed;
          z-index: 2;
          top:-0.5px;

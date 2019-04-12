@@ -1,5 +1,8 @@
 //node 后端服务器
 const userApi = require('./api/userApi');
+const uploadApi = require('./api/uploadApi');
+
+
 const fs = require('fs')
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -11,6 +14,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 //后端api路由
 app.use('/api/user', userApi);
+app.use('/api/upload', uploadApi);
+
 
 //监听端口
 app.listen(3000);

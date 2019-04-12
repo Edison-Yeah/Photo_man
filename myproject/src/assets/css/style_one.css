@@ -1,0 +1,48 @@
+*{ 
+    margin: 0;
+    padding: 0; 
+    text-decoration: none;
+}
+ul{
+   list-style: none;
+}
+
+#container{
+   position: relative;
+   width: 400px;
+   height: 200px;
+   overflow: hidden;/*隐藏溢出的图片*/
+}
+.pic{
+   width:1600px;/*4张图的宽度*/
+   position: absolute;/*基于父容器进行定位*/
+   left:0;
+   animation-name: focusmap;
+   animation-duration: 12s;
+   animation-iteration-count: infinite; 
+
+}
+@keyframes focusmap {
+   0%,30%{
+       left: 0;
+   }
+   35%,65%{
+       left: -400px;
+   }
+   70%,99%{
+       left: -800px;
+   }
+   100%{
+       left: -1200px;
+   }
+  
+}
+.pic li{
+   float: left;
+   background: #5dd94e;
+}
+
+.pic li img {
+   width: 400px;
+   height: 200px;
+}
