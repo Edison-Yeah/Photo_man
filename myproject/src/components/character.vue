@@ -6,10 +6,20 @@
              </div>
             
              <div id="photo_list">
-                     <div id="img" >
-                    
+                 <viewer>
+                     <div v-for="mounth in m_number" style="width:100%;float:left;margin-bottom:2%;">
+                       <ul>
+                            <p>{{mounth.datatime}}</p>
+                            <hr></hr>
+                           
+                           <li v-for="photo in p_number">
+                                <img :src="photo.src" :index="photo.index" :data-original="photo.data_original">
+                                </img>
+                           </li>
+                           
+                       </ul>
                      </div>
-                     
+                     </viewer>
              </div>
 
              
@@ -17,72 +27,46 @@
 </template>
 
 <script>
-
      export default {
-         mounted() {
-             this.get_img();
+         data() {
+             return {
+                 m_number: [
+                     {datatime:'2019/01'},
+                     {datatime:'2019/02'}
+                 ],
+                 p_number: [
+                     {src:require('../assets/dog1.png'),data_original:require('../assets/dog.png'),index:1},
+                     {src:require('../assets/dog1.png'),data_original:require('../assets/dog.png'),index:2},
+                     {src:require('../assets/dog1.png'),data_original:require('../assets/dog.png'),index:3},
+                     {src:require('../assets/dog1.png'),data_original:require('../assets/dog.png'),index:4},
+                     {src:require('../assets/dog1.png'),data_original:require('../assets/dog.png'),index:5}
+                 ],
+                 src: require('../assets/dog1.png')
+             }
          },
          methods: {
-             get_img: function() {
-                 var parent = document.getElementById("img");
-                 
-                  // img[],li[],number
-                  var mounth_number=2;
-                  
-                  for (var j=1;j<=mounth_number;j++){
-                     var div;
-                     div = document.createElement("div");
-                     div.id = 'photo_list'+j;
-                      var p =document.createElement("p");
-                      var hr = document.createElement("HR");
-
-                      p.innerHTML='2019.01';
-                      hr.SIZE = 3;
-                      hr.style="width:100%";
-                      
-                      div.appendChild(p)
-                      div.appendChild(hr)
-                      
-                      var img_number=8;
-                      var ul = document.createElement("ul");
-                      for (var j=1;j<=img_number;j++) {
-                           var li = document.createElement("li");
-                      var img = document.createElement("img");
-                       
-                     img.src = require('../assets/dog1.png');
-                      li.appendChild(img);
-                      ul.appendChild(li);
-                     
-                      }
-                      div.appendChild(ul);
-                      
-                      parent.appendChild(div);
-                  }
-
-                  
-            
-                 
-             }
+          
+             
          } 
      }
 </script>
 
 <style>
-   #photo_list p {
+   #photo_list  p {
        float:left;
+       width:100%;
+       margin-left:-40%;
    }
-   #photo_list HR {
+   #photo_list  HR {
        float:left;
+       width:100%;
    }
    #photo_list {
        float:left;
        margin-top:20px auto;
        
    }
-   #photo_list #img #ul{
-       margin:0 auto;
-   }
-   #photo_list #img ul li{
+   #photo_list  ul li{
        border:4px solid #fff;
        /*粗细 风格 颜色边框*/
        list-style-type:none;/*去掉前面的圆点*/

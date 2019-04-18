@@ -11,9 +11,14 @@ import view from '@/components/view'
 import life from '@/components/life'
 import others from '@/components/others'
 import CoolStory from '@/components/CoolStory'
+import story from '@/components/story'
 import AmazingTime from '@/components/AmazingTime'
+import Viewer from 'v-viewer'
+import 'viewerjs/dist/viewer.css'
 
-Vue.use(Router)
+Vue.use(Router);
+Vue.use(Viewer);
+
 
 export default new Router({
   routes: [
@@ -51,6 +56,11 @@ export default new Router({
           path: '/CoolStory',
           name: 'CoolStory',
           component: CoolStory
+        },
+        {
+          path: '/story',
+          name: 'story',
+          component: story
         },
         {
           path: '/AmazingTime',
